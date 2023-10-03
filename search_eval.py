@@ -13,7 +13,7 @@ def load_ranker(cfg_file):
     """
     if 'cranfield' in cfg_file:
        
-       okapiRanker=metapy.index.OkapiBM25(k1=1.25,b=0.8,k3=0)
+       okapiRanker=metapy.index.OkapiBM25(k1=1.25,b=0.85,k3=0)
     elif 'faculty' in cfg_file:
        okapiRanker=metapy.index.OkapiBM25(k1=0.52,b=0.65,k3=500)
     elif 'news' in cfg_file:
