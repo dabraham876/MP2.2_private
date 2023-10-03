@@ -11,7 +11,18 @@ def load_ranker(cfg_file):
     The parameter to this function, cfg_file, is the path to a
     configuration file used to load the index.
     """
-    return metapy.index.OkapiBM25()
+    if 'cranfield' in cfg_file:
+       
+       okapiRanker=metapy.index.OkapiBM25(k1=1.25,b=0.8,k3=0)
+    elif 'faculty' in cfg_file:
+       okapiRanker=metapy.index.OkapiBM25(k1=0.5,b=0.8,k3=500)
+    elif 'news' in cfg_file:
+       okapiRanker=metapy.index.OkapiBM25(k1=.95,b=0.3,k3=500)
+    else:
+       okapiRanker=metapy.index.OkapiBM25(k1=1.25,b=0.8,k3=0)
+        
+    return okapiRanker     
+    
 
 if __name__ == '__main__':
     if len(sys.argv) != 2:
